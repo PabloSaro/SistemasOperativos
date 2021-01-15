@@ -1,0 +1,6 @@
+12:24:18 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+
+12:24:18 Build Finished (took 76ms)
+

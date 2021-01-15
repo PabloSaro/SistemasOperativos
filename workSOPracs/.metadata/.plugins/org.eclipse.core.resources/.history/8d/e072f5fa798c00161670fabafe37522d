@@ -1,0 +1,214 @@
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include "mytar.h"
+
+extern char *use;
+
+/** Copy nBytes bytes from the origin file to the destination file.
+ *
+ * origin: pointer to the FILE descriptor associated with the origin file
+ * destination:  pointer to the FILE descriptor associated with the destination file
+ * nBytes: number of bytes to copy
+ *
+ * Returns the number of bytes actually copied or -1 if an error occured.
+ */
+int copynFile(FILE * origin, FILE * destination, int nBytes){// copiamos nbytes de origen a destino
+
+	//usaremos getc y putc en la practica
+	// Complete the function
+
+	/*FILE* fileOr=NULL;
+	FILE* fileDst= NULL;*///no uso porque los ficheros ya vienen abiertos
+
+
+	int c, ret, bytesLeidos = 0;
+	while(((c = getc(origin))!= EOF) && bytesLeidos < nBytes){//getc devuelve un char modelado a int, por eso en putc debemos castear
+
+		ret = putc((unsigned char) c, destination);
+		if(feof(origin)){
+			fclose(origin);
+			err(3, "put failed");
+		}
+		else bytesLeidos++;
+
+	}
+
+	/*
+	//abrimos origen y destino fopen
+	fileOr = fopen(origin, "r");
+	fileDst = fopen(destination, "w");
+	
+
+	//leemos origen con fread
+	//escribimos con fwrite
+	//cerramos ambos con fclose*/
+
+	fclose(origin);
+
+	//DEVOLVEMOS EL NUMERO DE BYTES TRANSFERIDOS
+	return bytesLeidos;
+}
+
+/** Loads a string from a file.
+ *
+ * file: pointer to the FILE descriptor 
+ * 
+ * The loadstr() function must allocate memory from the heap to store 
+ * the contents of the string read from the FILE. 
+ * Once the string has been properly built in memory, the function returns
+ * the starting address of the string (pointer returned by malloc()) 
+ * 
+ * Returns: !=NULL if success, NULL if error
+ */
+char* loadstr(FILE * file){
+	//LEE UNA CADENA DE CARACTERES FILE
+	//LA FUNCION RESERVA MEMORIA PARA LA CADENA LEIDA
+	//DEVOLVEMOS LA DIRECCION DE MEORIA DONDE COMIENZA LA CADENA
+
+	// Complete the function
+	return NULL;
+}
+
+/** Read tarball header and store it in memory.
+ *
+ * tarFile: pointer to the tarball's FILE descriptor 
+ * nFiles: output parameter. Used to return the number 
+ * of files stored in the tarball archive (first 4 bytes of the header).
+ *
+ * On success it returns the starting memory address of an array that stores 
+ * the (name,size) pairs read from the tar file. Upon failure, the function returns NULL.
+ */
+
+
+stHeaderEntry* readHeader(FILE * tarFile, int *nFiles){// LEE LA CABECERA TARFILE Y COPIA LA INFORMACION EN EL HEADER Y LO DEVUELVE
+	//NFILES TIENE EL NUMERO DE FICHEROS CONTENIDOS EN EL MTAR
+
+	// Complete the function
+
+	stHeaderEntry* cabeceras = NULL;
+	int nr_files = 0, i;
+
+	fscanf(tarFile, "%i", &nr_files); // leemos el numero de archivos que contiene el tar
+
+	cabeceras = malloc(sizeof(stHeaderEntry)*nr_files); // reservamos espacio para el array de cabeceras
+
+	for(i = 0; i < nr_files; i++){
+			fscanf(tarFile, "%s", &cabeceras[i].name);// leemos nombre y lo pasamos al array de headers
+			fscanf(tarFile, "%i", &cabeceras[i].size);//leemos tamaño
+
+	}
+
+
+
+
+	*nFiles = nr_files;
+	return NULL;//DEVOLVEMOS HEADER CON LOS DATOS
+}
+
+/** Creates a tarball archive 
+ *
+ * nfiles: number of files to be stored in the tarball
+ * filenames: array with the path names of the files to be included in the tarball
+ * tarname: name of the tarball archive
+ * 
+ * On success, it returns EXIT_SUCCESS; upon error it returns EXIT_FAILURE. 
+ * (macros defined in stdlib.h).
+ *
+ * HINTS: First reserve room in the file to store the tarball header.
+ * Move the file's position indicator to the data section (skip the header)
+ * and dump the contents of the source files (one by one) in the tarball archive. 
+ * At the same time, build the representation of the tarball header in memory.
+ * Finally, rewind the file's position indicator, write the number of files as well as 
+ * the (file name,file size) pairs in the tar archive.
+ *
+ * Important reminder: to calculate the room needed for the header, a simple sizeof 
+ * of stHeaderEntry will not work. Bear in mind that, on disk, file names found in (name,size) 
+ * pairs occupy strlen(name)+1 bytes.
+ *
+ */
+int createTar(int nFiles, char *fileNames[], char tarName[]){
+
+	// Complete the function
+FILE* tarFile = NULL;
+	int maxBytes = 10, bytesCopiados;
+
+	tarFile = fopen(tarName, "w");//abrimos archivo pasado por tarname
+	stHeaderEntry* arrayCabeceras = NULL;
+	int i, desplazamiento, tamCabeceras = 0  ;
+
+	for(i = 0; i < nFiles; i++){
+		tamCabeceras = tamCabeceras + strlen(fileNames[i]) + 1;
+	}
+
+
+	desplazamiento  = sizeof(int)+(nFiles * sizeof(unsigned int)) + tamCabeceras;
+	printf("desplazamiento = %i\n", desplazamiento);
+
+	if(fseek(tarFile, desplazamiento, SEEK_SET) != 0){
+		exit(EXIT_FAILURE);
+	}
+
+	arrayCabeceras = malloc(sizeof(stHeaderEntry)*nFiles);
+	int bytesTotales = 0;
+
+	for(i = 0; i< nFiles; i++){
+		printf("comenzamos con el elemento %i %s\n" , i, fileNames[i]);
+		//fseek(tarFile, (desplazamiento + bytesTotales) , SEEK_SET);
+		FILE* fichero = NULL;
+		fichero = fopen(fileNames[i], "r+");
+		bytesCopiados = copynFile(fichero, tarFile, INT_MAX);
+		bytesTotales = bytesTotales + bytesCopiados;
+		printf("BYTES COPIADOS =%i \n",bytesCopiados );
+		printf("bytes TOTALES %i \n",bytesTotales);
+		printf("Archivo  %s copiado \n",fileNames[i]);
+		arrayCabeceras[i].name = fileNames[i];
+		arrayCabeceras[i].size = bytesCopiados;
+		printf("Nombre guardado en header: %s\n", arrayCabeceras[i].name);
+
+
+
+	}
+
+
+	if(fseek(tarFile, 0, SEEK_SET) == 0){
+		printf("movemos cursor en tarfile \n");
+	}//movemos cursor al principio y escribimos
+
+	fprintf(tarFile, "%i", &nFiles);//// escribimos el numero de nfiles en el tarfile
+	//for(i = 0; i< nFiles; i++){
+	i = 0;
+			fprintf(tarFile, "%s ", &arrayCabeceras[i].name);
+			printf("Nombre escrito %s\n", arrayCabeceras[i].name);
+			fprintf(tarFile, "%i ", &arrayCabeceras[i].size);
+			printf("tamaño escrito %i\n",arrayCabeceras[i].size);
+	//	}
+
+	//tras copiar todos los ficheros, cerramos tarfile
+
+
+
+	fclose(tarFile);
+	return EXIT_FAILURE;
+}
+
+/** Extract files stored in a tarball archive
+ *
+ * tarName: tarball's pathname
+ *
+ * On success, it returns EXIT_SUCCESS; upon error it returns EXIT_FAILURE. 
+ * (macros defined in stdlib.h).
+ *
+ * HINTS: First load the tarball's header into memory.
+ * After reading the header, the file position indicator will be located at the 
+ * tarball's data section. By using information from the 
+ * header --number of files and (file name, file size) pairs--, extract files 
+ * stored in the data section of the tarball.
+ *
+ */
+int extractTar(char tarName[]){
+	// Complete the function
+	return EXIT_FAILURE;
+}

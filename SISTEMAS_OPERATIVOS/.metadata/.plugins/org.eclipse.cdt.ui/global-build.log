@@ -1,0 +1,103 @@
+19:40:59 **** Incremental Build of configuration Default for project P2 ****
+make all 
+mkdir -p obj
+cc -c -o obj/fuseLib.o src/fuseLib.c -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse  
+src/fuseLib.c: In function ‘my_read’:
+src/fuseLib.c:435:3: warning: passing argument 1 of ‘memcpy’ discards ‘const’ qualifier from pointer target type [enabled by default]
+In file included from src/fuseLib.c:6:0:
+/usr/include/string.h:44:14: note: expected ‘void * __restrict__’ but argument is of type ‘const char *’
+src/fuseLib.c:411:18: warning: unused variable ‘totalWrite’ [-Wunused-variable]
+src/fuseLib.c: At top level:
+src/fuseLib.c:578:2: warning: initialization from incompatible pointer type [enabled by default]
+src/fuseLib.c:578:2: warning: (near initialization for ‘myFS_operations.read’) [enabled by default]
+cc -o fs-fuse obj/fuseLib.o obj/MyFileSystem.o obj/myFS.o -lfuse  
+19:41:11 **** Incremental Build of configuration Default for project P2 ****
+make all 
+mkdir -p obj
+cc -c -o obj/fuseLib.o src/fuseLib.c -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse  
+src/fuseLib.c: In function ‘my_read’:
+src/fuseLib.c:435:3: warning: passing argument 1 of ‘memcpy’ discards ‘const’ qualifier from pointer target type [enabled by default]
+In file included from src/fuseLib.c:6:0:
+/usr/include/string.h:44:14: note: expected ‘void * __restrict__’ but argument is of type ‘const char *’
+src/fuseLib.c:411:18: warning: unused variable ‘totalWrite’ [-Wunused-variable]
+src/fuseLib.c: At top level:
+src/fuseLib.c:577:2: warning: initialization from incompatible pointer type [enabled by default]
+src/fuseLib.c:577:2: warning: (near initialization for ‘myFS_operations.read’) [enabled by default]
+cc -o fs-fuse obj/fuseLib.o obj/MyFileSystem.o obj/myFS.o -lfuse  
+19:44:00 **** Incremental Build of configuration Default for project P2 ****
+make all 
+mkdir -p obj
+cc -c -o obj/fuseLib.o src/fuseLib.c -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse  
+src/fuseLib.c: In function ‘my_read’:
+src/fuseLib.c:435:3: warning: passing argument 1 of ‘memcpy’ discards ‘const’ qualifier from pointer target type [enabled by default]
+In file included from src/fuseLib.c:6:0:
+/usr/include/string.h:44:14: note: expected ‘void * __restrict__’ but argument is of type ‘const char *’
+src/fuseLib.c:411:18: warning: unused variable ‘totalWrite’ [-Wunused-variable]
+src/fuseLib.c: At top level:
+src/fuseLib.c:577:2: warning: initialization from incompatible pointer type [enabled by default]
+src/fuseLib.c:577:2: warning: (near initialization for ‘myFS_operations.read’) [enabled by default]
+cc -o fs-fuse obj/fuseLib.o obj/MyFileSystem.o obj/myFS.o -lfuse  
+19:45:08 **** Incremental Build of configuration Default for project P2 ****
+make all 
+make: No se hace nada para `all'.
+19:46:58 **** Incremental Build of configuration Default for project P2 ****
+make all 
+mkdir -p obj
+cc -c -o obj/fuseLib.o src/fuseLib.c -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse  
+src/fuseLib.c: In function ‘my_read’:
+src/fuseLib.c:435:3: warning: passing argument 1 of ‘memcpy’ discards ‘const’ qualifier from pointer target type [enabled by default]
+In file included from src/fuseLib.c:6:0:
+/usr/include/string.h:44:14: note: expected ‘void * __restrict__’ but argument is of type ‘const char *’
+src/fuseLib.c:411:18: warning: unused variable ‘totalWrite’ [-Wunused-variable]
+src/fuseLib.c: At top level:
+src/fuseLib.c:577:2: warning: initialization from incompatible pointer type [enabled by default]
+src/fuseLib.c:577:2: warning: (near initialization for ‘myFS_operations.read’) [enabled by default]
+cc -o fs-fuse obj/fuseLib.o obj/MyFileSystem.o obj/myFS.o -lfuse  
+19:50:11 **** Incremental Build of configuration Default for project P2 ****
+make all 
+mkdir -p obj
+cc -c -o obj/fuseLib.o src/fuseLib.c -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse  
+src/fuseLib.c: In function ‘my_read’:
+src/fuseLib.c:436:3: warning: passing argument 1 of ‘memcpy’ discards ‘const’ qualifier from pointer target type [enabled by default]
+In file included from src/fuseLib.c:6:0:
+/usr/include/string.h:44:14: note: expected ‘void * __restrict__’ but argument is of type ‘const char *’
+src/fuseLib.c:411:18: warning: unused variable ‘totalWrite’ [-Wunused-variable]
+src/fuseLib.c: At top level:
+src/fuseLib.c:578:2: warning: initialization from incompatible pointer type [enabled by default]
+src/fuseLib.c:578:2: warning: (near initialization for ‘myFS_operations.read’) [enabled by default]
+cc -o fs-fuse obj/fuseLib.o obj/MyFileSystem.o obj/myFS.o -lfuse  
+19:53:44 **** Incremental Build of configuration Default for project P2 ****
+make all 
+mkdir -p obj
+cc -c -o obj/fuseLib.o src/fuseLib.c -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse  
+src/fuseLib.c: In function ‘my_read’:
+src/fuseLib.c:436:3: warning: passing argument 1 of ‘memcpy’ discards ‘const’ qualifier from pointer target type [enabled by default]
+In file included from src/fuseLib.c:6:0:
+/usr/include/string.h:44:14: note: expected ‘void * __restrict__’ but argument is of type ‘const char *’
+src/fuseLib.c:411:18: warning: unused variable ‘totalWrite’ [-Wunused-variable]
+src/fuseLib.c: At top level:
+src/fuseLib.c:578:2: warning: initialization from incompatible pointer type [enabled by default]
+src/fuseLib.c:578:2: warning: (near initialization for ‘myFS_operations.read’) [enabled by default]
+cc -o fs-fuse obj/fuseLib.o obj/MyFileSystem.o obj/myFS.o -lfuse  
+19:55:08 **** Incremental Build of configuration Default for project P2 ****
+make all 
+make: No se hace nada para `all'.
+19:57:30 **** Incremental Build of configuration Default for project P2 ****
+make all 
+make: No se hace nada para `all'.
+20:02:26 **** Incremental Build of configuration Default for project P2 ****
+make all 
+mkdir -p obj
+cc -c -o obj/fuseLib.o src/fuseLib.c -g -Wall -D_FILE_OFFSET_BITS=64 -I/usr/include/fuse  
+src/fuseLib.c: In function ‘my_read’:
+src/fuseLib.c:436:3: warning: passing argument 1 of ‘memcpy’ discards ‘const’ qualifier from pointer target type [enabled by default]
+In file included from src/fuseLib.c:6:0:
+/usr/include/string.h:44:14: note: expected ‘void * __restrict__’ but argument is of type ‘const char *’
+src/fuseLib.c:411:18: warning: unused variable ‘totalWrite’ [-Wunused-variable]
+src/fuseLib.c: At top level:
+src/fuseLib.c:578:2: warning: initialization from incompatible pointer type [enabled by default]
+src/fuseLib.c:578:2: warning: (near initialization for ‘myFS_operations.read’) [enabled by default]
+cc -o fs-fuse obj/fuseLib.o obj/MyFileSystem.o obj/myFS.o -lfuse  
+10:16:36 **** Incremental Build of configuration Default for project P2 ****
+make all 
+make: No se hace nada para `all'.

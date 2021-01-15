@@ -1,0 +1,6 @@
+10:16:36 **** Incremental Build of configuration Default for project P2 ****
+make all 
+make: No se hace nada para `all'.
+
+10:16:36 Build Finished (took 96ms)
+

@@ -1,0 +1,55 @@
+12:01:52 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+gcc -g -Wall  -c  mytar_routines.c -o mytar_routines.o
+mytar_routines.c: In function ‘copynFile’:
+mytar_routines.c:33:4: warning: implicit declaration of function ‘err’ [-Wimplicit-function-declaration]
+mytar_routines.c:27:9: warning: variable ‘ret’ set but not used [-Wunused-but-set-variable]
+mytar_routines.c: In function ‘readHeader’:
+mytar_routines.c:99:4: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘char **’ [-Wformat]
+mytar_routines.c: In function ‘createTar’:
+mytar_routines.c:177:2: warning: format ‘%i’ expects argument of type ‘int’, but argument 3 has type ‘int *’ [-Wformat]
+mytar_routines.c:179:4: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘char **’ [-Wformat]
+mytar_routines.c:180:4: warning: format ‘%i’ expects argument of type ‘int’, but argument 3 has type ‘unsigned int *’ [-Wformat]
+mytar_routines.c:136:6: warning: unused variable ‘maxBytes’ [-Wunused-variable]
+gcc -g -Wall  -o mytar mytar.o mytar_routines.o
+12:02:24 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:02:58 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:04:03 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:05:49 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:20:47 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+gcc -g -Wall  -c  mytar_routines.c -o mytar_routines.o
+mytar_routines.c: In function ‘copynFile’:
+mytar_routines.c:33:4: warning: implicit declaration of function ‘err’ [-Wimplicit-function-declaration]
+mytar_routines.c:27:9: warning: variable ‘ret’ set but not used [-Wunused-but-set-variable]
+mytar_routines.c: In function ‘readHeader’:
+mytar_routines.c:99:4: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘char **’ [-Wformat]
+mytar_routines.c: In function ‘createTar’:
+mytar_routines.c:178:2: warning: format ‘%i’ expects argument of type ‘int’, but argument 3 has type ‘int *’ [-Wformat]
+mytar_routines.c:180:4: warning: format ‘%s’ expects argument of type ‘char *’, but argument 3 has type ‘char **’ [-Wformat]
+mytar_routines.c:181:4: warning: format ‘%i’ expects argument of type ‘int’, but argument 3 has type ‘unsigned int *’ [-Wformat]
+mytar_routines.c:136:6: warning: unused variable ‘maxBytes’ [-Wunused-variable]
+gcc -g -Wall  -o mytar mytar.o mytar_routines.o
+12:21:09 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:21:39 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:22:16 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:23:53 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
+12:24:18 **** Incremental Build of configuration Default for project PRAC_1 ****
+make all 
+make: No se hace nada para `all'.
